@@ -11,7 +11,9 @@ import {
   Typography,
 } from "@mui/material";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import style from "./Register.module.css";
+
 function RegisterForm() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
@@ -19,11 +21,22 @@ function RegisterForm() {
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
   const [year, setYear] = useState("");
+  const [isEmailOrPhone, setIsEmailOrPhone] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [nameError, setNameError] = useState(false);
+
   const [allUserData, setAllUserData] = useState(
     JSON.parse(localStorage.getItem("userData"))
       ? JSON.parse(localStorage.getItem("userData"))
       : []
   );
+
+  const emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  const phoneRegex =
+    /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
 
   const Month = [
     "January",
@@ -58,26 +71,75 @@ function RegisterForm() {
     Day.push(i);
   }
 
+  let tempName = "";
+  let tempEmail = "";
+  let tempPhone = "";
+
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
-  const handleSubmitRegister = () => {
-    const dob = day + "/" + month + "/" + year;
-    const tempData = { id: new Date(), name: name, phone: phone, dob: dob };
-    localStorage.setItem(
-      "userData",
-      JSON.stringify([...allUserData, tempData])
-    );
-    // console.log(name, phone, dob, new Date());
 
-    setName("");
-    setDay("");
-    setMonth("");
-    setPhone("");
-    setYear("");
+  const handleName = (e) => {
+    tempName = e.target.value;
+    if (tempName.length < 3) {
+      setNameError(true);
+    } else {
+      setNameError(false);
+    }
+    setName(tempName);
+  };
+
+  const handleEmail = (e) => {
+    const tempEmail = e.target.value;
+    if (!tempEmail.match(emailRegex)) {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
+    setPhone(tempEmail);
+  };
+
+  const handlePhone = (e) => {
+    const tempPhone = e.target.value;
+    if (!tempPhone.match(phoneRegex)) {
+      setPhoneError(true);
+    } else {
+      setPhoneError(false);
+    }
+    setPhone(tempPhone);
+  };
+
+  const handleSubmitRegister = () => {
+    if (name.length < 3) {
+      setNameError(true);
+    } else if (!phone.match(phoneRegex) && !phone.match(emailRegex)) {
+      setPhoneError(true);
+      setEmailError(true);
+    } else if (day == "") {
+    } else if (month == "") {
+    } else if (year == "") {
+    } else {
+      setNameError(false);
+      setEmailError(false);
+      setPhoneError(false);
+
+      const dob = day + "/" + month + "/" + year;
+      const tempData = { id: new Date(), name: name, phone: phone, dob: dob };
+      localStorage.setItem(
+        "userData",
+        JSON.stringify([...allUserData, tempData])
+      );
+      //   console.log(name, phone, dob, new Date());
+
+      setName("");
+      setDay("");
+      setMonth("");
+      setPhone("");
+      setYear("");
+    }
   };
   return (
     <div>
@@ -92,8 +154,8 @@ function RegisterForm() {
           <Box
             sx={{
               backgroundColor: "white",
-              width: "30%",
-              height: "80%",
+              width: "30rem",
+              height: "34rem",
               margin: "auto",
               marginTop: "20px",
               padding: "50px",
@@ -130,18 +192,71 @@ function RegisterForm() {
               label="Name"
               variant="outlined"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={handleName}
             />
+            {nameError ? (
+              <span style={{ color: "red", marginLeft: "10px" }}>
+                What's your name?
+              </span>
+            ) : (
+              ""
+            )}
             <br />
-            <TextField
-              sx={{ width: "90%", margin: "10px" }}
-              id="filled-basic"
-              label="Phone"
-              value={phone}
-              variant="outlined"
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <Typography id="modal-modal-title" variant="h6" component="h2">
+
+            {!isEmailOrPhone ? (
+              <TextField
+                sx={{ width: "90%", margin: "10px" }}
+                id="filled-basic"
+                label="Phone"
+                value={phone}
+                variant="outlined"
+                onChange={handlePhone}
+              />
+            ) : (
+              <TextField
+                sx={{ width: "90%", margin: "10px" }}
+                id="filled-basic"
+                label="Email"
+                value={phone}
+                variant="outlined"
+                onChange={handleEmail}
+              />
+            )}
+
+            {!isEmailOrPhone ? (
+              phoneError ? (
+                <span style={{ color: "red", marginLeft: "10px" }}>
+                  Please enter a valid phone number.
+                </span>
+              ) : (
+                ""
+              )
+            ) : emailError ? (
+              <span style={{ color: "red", marginLeft: "10px" }}>
+                Email is Invalid
+              </span>
+            ) : (
+              ""
+            )}
+
+            <Link
+              style={{
+                float: "right",
+                marginRight: "45px",
+                color: "#2AA1F1",
+                textDecoration: "none",
+              }}
+              onClick={() => setIsEmailOrPhone(!isEmailOrPhone)}
+            >
+              use {isEmailOrPhone ? "phone" : "email"} instead
+            </Link>
+
+            <Typography
+              id="modal-modal-title"
+              sx={{ marginTop: "30px" }}
+              variant="h6"
+              component="h2"
+            >
               Date of birth
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
@@ -229,6 +344,7 @@ function RegisterForm() {
                 fontSize: "20px",
                 fontWeight: "bold",
                 width: "80%",
+                marginLeft: "50px",
               }}
               variant="contained"
               onClick={handleSubmitRegister}
