@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [open, setOpen] = useState(false);
-   const [input, setInput]=useState('');
+  const [input, setInput] = useState("");
 
   const nav = useNavigate();
 
@@ -28,32 +28,31 @@ function Login() {
     alert("Forget Pssword");
   }
 
-  //handle input field 
-  function handleChange(e){
-   
+  //handle input field
+  function handleChange(e) {
     setInput(e.target.value);
-    console.log(input)
-
+    console.log(input);
   }
-  let getData=JSON.parse(localStorage.getItem('userData'));
+  let getData = JSON.parse(localStorage.getItem("userData"));
   console.log(getData);
 
-  function handleNextClick(e){
+  function handleNextClick(e) {
     e.preventDefault();
-     const newData=getData.filter((i)=>i.userName === input || i.phone === input || i.email === input);
+    const newData = getData.filter(
+      (i) => i.userName === input || i.phone === input || i.email === input
+    );
 
-     if(newData.length===0){
-      alert('invalid user data');
-     }
-     else{
-      nav('/loginto')
-     }
-
+    if (newData.length === 0) {
+      alert("invalid user data");
+    } else {
+      nav("/loginto");
+    }
   }
   return (
     <div className={l.main}>
       <Button onClick={() => setOpen(true)}>
-        {<RxCross2 size={30} sx={{ color: "black" }} />}
+        {/* {<RxCross2 size={30} sx={{ color: "black" }} />} */}
+        Login
       </Button>
       <Modal
         open={open}

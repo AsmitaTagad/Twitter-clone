@@ -144,7 +144,7 @@ function RegisterForm() {
   return (
     <div>
       <div>
-        <Button onClick={handleOpen}>Open modal</Button>
+        <Button onClick={handleOpen}>Sign up</Button>
         <Modal
           open={open}
           aria-labelledby="modal-modal-title"
