@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sliderDetails {
+  padding: 10px;
+  margin: 55px;
+}
+
+.sidebarOption {
+  float: left;
+}
+
+.sliderDetails :hover {
+  background-color: #d0d7de;
+  border-radius: 30px;
+  padding: 10px;
+}
+.sliderDetails :active {
+  color: black;
+  font-weight: 600;
+}
+
+.Icon {
+  margin-top: 35px;
+  margin-left: -60px;
+  color: rgb(29, 155, 240);
+  font-size: 35px;
+}
+
+.Home,
+.Explore,
+.Notifications,
+.Messages,
+.Bookmarks,
+.Profile,
+.More {
+  margin: 16px;
+  border: none;
+  text-decoration-color: black;
+  background: none;
+}
+
+.Home a {
+  font-weight: 800;
+  font-size: 20px;
+  margin-left: 10px;
+  /* margin-top:  800px; */
+}
+
+.Explore a,
+.Notifications a,
+.Messages a,
+.Bookmarks a,
+.Profile a,
+.More a {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.TweetButton {
+  background-color: rgb(29, 155, 240);
+  color: white;
+  border-radius: 25px;
+  width: 225px;
+  height: 45px;
+  border: none;
+  margin-left: 45px;
+}
+
+.Notifications {
+  margin-left: 60px;
+  border: none;
+  background: none;
+}
+.Messages {
+  margin-left: 51px;
+  border: none;
+  background: none;
+}
+.Bookmarks {
+  margin-left: 51px;
+  border: none;
+  background: none;
+}
+.Profile {
+  margin-left: 15px;
+  border: none;
+  background: none;
+}
+
+.More {
+  margin-left: 15px;
+  border: none;
+  background: none;
+}
+
+/* body {
+    display: flex;
+    height: 100vh;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+  }
+   */
+
+   @media screen and (max-width: 480px) {
+    .Home a,
+    .Explore a,
+    .Notifications a,
+    .Messages a,
+    .Bookmarks a,
+    .Profile a,
+    .More a{
+      display: none;
+    }
+    .Notifications, .Messages, .Bookmarks {
+        margin-left: 15px;
+    }
+    .Icon{
+        margin-left: 15px; 
+    }
+   .TweetButton{
+     content: "\f2f7"; 
+     font-family: 'Font Awesome 5 Free'; 
+    font-size: 24px;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 100px; 
+    width: 45px;
+    height: 15 px;
+ margin-left: -10px; 
+ font-size: 10px;
+ /* content: "+"; */
+
+
+}}
+
+
