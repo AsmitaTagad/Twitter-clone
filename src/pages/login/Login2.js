@@ -1,24 +1,29 @@
 import React,{useState} from "react";
-//  import l2 from "./Loginto.module.css";
-import { Button, TextField, Modal, Box, Typography } from "@mui/material";
+import l from './Login.module.css';
+import { Button, TextField, Modal, Box, Typography,FormControl,InputLabel,OutlinedInput,IconButton,InputAdornment } from "@mui/material";
 import { SiTwitter } from "react-icons/si";
-// import { RxCross2 } from "react-icons/rx";
+import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
+import {AiOutlineEye,AiOutlineEyeInvisible}  from 'react-icons/ai';
+import {data} from './Login';
 
 function Login() {
-//   const [show, setShow] = useState(false);
-const [input, setInput]=useState('');
-
+  const [show, setShow] = useState(false);
+  const [input, setInput]=useState('');
   const nav = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
-//   function handleLoginClick() {
-//     nav("/");
-//   }
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+   
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
 
 function handlePassChange(e){
     setInput(e.target.value);
     console.log(input)
-    setInput()
+    
   }
 
   let getData=JSON.parse(localStorage.getItem('userData'));
@@ -38,6 +43,8 @@ function handlePassChange(e){
         nav('/')
     }
 
+    setInput('')
+
   }
 
   
@@ -47,7 +54,7 @@ function handlePassChange(e){
      
       <Modal
         open='true'
-        // onClose={() => setShow(false)}
+        onClose={() => setShow(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="model-model-description"
         sx={{
@@ -55,22 +62,24 @@ function handlePassChange(e){
         }}
       >
         <Box
-          width={580}
-          height={445}
+           width={680}
+          height={645}
           position="absolute"
-          top="15%"
+          top="10%"
           left="30%"
           backgroundColor="#fff"
           padding="2rem"
+          marginLeft='3rem'
           sx={{border:'none'}}
+          className={l.box}
         >
-         {/* <Button onClick={() => setShow(true)}>{<RxCross2 size={30} sx={{color:"black"}}/>}</Button> */}
+         <Button onClick={() => setShow(true)}>{<RxCross2 size={30} sx={{ color:"black" }}/>}</Button>
           <div >
             <div>
               {
                 <SiTwitter
                   style={{
-                    marginLeft: "16rem",
+                    marginLeft: "17rem",
                   }}
                   size="45px"
                   color="blue"
@@ -78,7 +87,7 @@ function handlePassChange(e){
               }
             </div>
 
-            <Typography sx={{ margin: "1.5rem", marginLeft: "7rem" }}>
+            <Typography sx={{ margin: "1.5rem", marginLeft: "5rem"}}>
               <h1>Enter Your Password</h1>
             </Typography>
 
@@ -89,41 +98,60 @@ function handlePassChange(e){
                 variant="outlined"
                 margin="normal"
                 disabled
+                value={data}
                 sx={{
-                  width: "90%",
+                  width: "80%",
+                  marginLeft:"10rem",
+                  margin:'1rem',
+                  marginTop:'2rem',
                 }}
               />
-              <TextField
-                id="outlined-basic"
-                label="Password"
-                variant="outlined"
-                margin="normal"
-                required
-                sx={{
-                  width: "90%",
-                }}
+             
+              <FormControl sx={{width: "80%" , marginLeft:"18rem",
+                margin:'1rem' ,marginTop:'1rem'}} variant="outlined">
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={showPassword ? "text" : "password"}
                 onChange={handlePassChange}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
               />
+            </FormControl>
+
               <br />
               <Button
-                href="#text-buttons"
                 variant="contained"
                 sx={{
                   display: "flex",
                   justyfyContent: "center",
                   alignItems: "center",
-                  width: "90%",
+                  width: "80%" ,
                   borderRadius: "35px",
                   backgroundColor: "black",
                   borderColor: "gray",
-                  margin: "0.5rem",
+                  margin: "0.8rem",
                   padding: "0.6rem",
+                  marginTop:"4rem"
                 }}
                type="onSubmit"
               >
                 Login
               </Button>
-              <a href="#forget"> Forget Password ? </a>
+              <a  style={{margin:'1rem'}} href="#forget"> Forget Password ? </a>
             </form>
           </div>
         </Box>

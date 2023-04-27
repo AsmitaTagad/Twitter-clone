@@ -5,7 +5,7 @@ import styles from "./Front.module.css";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { GrClose } from "react-icons/gr";
-import RegisterForm from "../../components/regiserform/RegisterForm";
+import RegisterForm from "../register/RegisterForm";
 
 function RegistrationPage() {
   const [isRegisterPage, setIsRegisterPage] = useState(false);
