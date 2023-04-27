@@ -1,3 +1,20 @@
 .containerbox{
     background-color: white;
+    /* color: rgb(62, 62, 62); */
 }
+.boxcontainer::-webkit-scrollbar{
+display: none;
+}
+
+@media  screen and (max-width:488px){
+    .boxcontainer{
+        width: 100vw;
+        height: 100vw;
+    }
+    .dropdowns{
+        display: flex;
+        flex-direction: column;
+    }
+   
+}
+
