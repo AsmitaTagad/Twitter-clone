@@ -19,7 +19,7 @@ import style from "./Register.module.css";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function RegisterForm() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
@@ -187,7 +187,7 @@ function RegisterForm() {
   return (
     <div>
       <div>
-        <Button onClick={handleOpen}>Sign up</Button>
+        {/* <Button onClick={handleOpen}>Sign up</Button> */}
         <Modal
           open={open}
           aria-labelledby="modal-modal-title"
