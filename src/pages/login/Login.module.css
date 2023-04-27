@@ -1,12 +1,13 @@
 .main{
     width: 100vh;
 }
-.Box{
+
+.box{
     box-shadow: 
-    10px 0px 50px 0px #fff ,
-    0px 10px 50px 0px #fff,
-    -10px 0px 50px 0px #fff,
-    0px -10px 50px 0px #fff;
+    3px 0px 5px 0px #fff ,
+    0px 1px 5px 0px #fff,
+    -10px 0px 5px 0px #fff,
+    0px -10px 5px 0px #fff;
     border-radius: 56px ; 
  } 
 

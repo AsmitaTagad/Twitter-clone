@@ -1,14 +1,8 @@
 import React from "react";
-import RegisterForm from "../../components/regiserform/RegisterForm";
-import Login from "../login/Login";
-
-// function Home() {
-//   return (
-//     <div>
-//       <h1>This is the Home page</h1>
-//       <RegisterForm />
-//       <Login />
+// import Login from "../login/Login";
 import SideBar from "../../side-bar/sideBar";
+// import {Grid,Item} from '@mui/material';
+// import RightSide from './rightSide';
 
 function Home() {
   return (
@@ -18,12 +12,23 @@ function Home() {
           <SideBar />
         </div>
         <div>
-          <h1>This is the Home page</h1>
+         {/* <Login /> */}
         </div>
       </div>
-      <RegisterForm />
-      <Login />
+      {/* <RightSide/> */}
     </div>
+
+//     <Grid container spacing={2}>
+//   <Grid item xs={3} md={8}>
+//     <Item> <SideBar /> </Item>
+//   </Grid>
+//   <Grid item xs={6} md={4}>
+//     <Item> <Login /> </Item>
+//   </Grid>
+//   <Grid item xs={3} md={4}>
+//     <Item>right side</Item>
+//   </Grid>
+// </Grid>
   );
 }
 
