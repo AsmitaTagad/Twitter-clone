@@ -27,7 +27,7 @@ function Navbar() {
         <Button
           sx={{
             flexGrow: "1",
-            padding: "10px 0",
+            padding: "18px 0",
             color: "black",
             fontWeight: "bold",
           }}
@@ -38,7 +38,7 @@ function Navbar() {
         <Button
           sx={{
             flexGrow: "1",
-            padding: "10px 0",
+            padding: "18px 0",
             color: "black",
             fontWeight: "bold",
           }}
