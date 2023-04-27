@@ -1,76 +1,83 @@
-import React,{useState} from "react";
-//  import l2 from "./Loginto.module.css";
-import { Button, TextField, Modal, Box, Typography } from "@mui/material";
+import React, { useState } from "react";
+import l from "./Login.module.css";
+import { Button, TextField, Modal, Box, Typography,FormControl,InputLabel,OutlinedInput,InputAdornment,IconButton } from "@mui/material";
 import { SiTwitter } from "react-icons/si";
 // import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
+import {AiOutlineEye,AiOutlineEyeInvisible } from 'react-icons/ai'
 
-function Login() {
-//   const [show, setShow] = useState(false);
-const [input, setInput]=useState('');
+
+import {data} from './Login'
+
+function Login2() {
+  //   const [show, setShow] = useState(false);
+  const [inputField, setInputField] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const nav = useNavigate();
 
-//   function handleLoginClick() {
-//     nav("/");
-//   }
+  
 
-function handlePassChange(e){
-    setInput(e.target.value);
-    console.log(input)
-    setInput()
+  function handlePassChange(e) {
+    setInputField(e.target.value);
+    setInputField();
   }
 
-  let getData=JSON.parse(localStorage.getItem('userData'));
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  let getData = JSON.parse(localStorage.getItem("userData"));
   console.log(getData);
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
-    const newData=getData.findIndex(
-        (i)=>i.password === input
-    );
+    const newData = getData.findIndex((i) => i.password === inputField);
 
-    if(newData.length===0){
-        alert('user not found');
+    if (newData.length === 0) {
+      alert("user not found");
+    } else {
+      alert("successfully login");
+      nav("/");
     }
-    else{
-        alert('successfully login')
-        nav('/')
-    }
-
   }
-
-  
 
   return (
     <div>
-     
       <Modal
-        open='true'
+        open="true"
         // onClose={() => setShow(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="model-model-description"
-        sx={{
-          border: "none",
-        }}
+        
       >
         <Box
-          width={580}
-          height={445}
+          width={780}
+          height={620}
           position="absolute"
-          top="15%"
-          left="30%"
+          top="5%"
+          left="25%"
           backgroundColor="#fff"
           padding="2rem"
-          sx={{border:'none'}}
+          marginLeft="3rem"
+          className={l.box}
+          sx={{
+          border: "none",
+        }}
         >
-         {/* <Button onClick={() => setShow(true)}>{<RxCross2 size={30} sx={{color:"black"}}/>}</Button> */}
-          <div >
+          {/* <Button onClick={() => setShow(true)}>{<RxCross2 size={30} sx={{color:"black"}}/>}</Button> */}
+          <div
+            style={{
+              marginLeft: "2rem",
+            }}
+          >
             <div>
               {
                 <SiTwitter
                   style={{
-                    marginLeft: "16rem",
+                    marginLeft: "20rem",
                   }}
                   size="45px"
                   color="blue"
@@ -78,8 +85,8 @@ function handlePassChange(e){
               }
             </div>
 
-            <Typography sx={{ margin: "1.5rem", marginLeft: "7rem" }}>
-              <h1>Enter Your Password</h1>
+            <Typography sx={{ margin: "1.5rem", marginTop: "2rem" }}>
+              <h1>Enter your password</h1>
             </Typography>
 
             <form onSubmit={handleSubmit}>
@@ -88,38 +95,75 @@ function handlePassChange(e){
                 label="Phone, email or username"
                 variant="outlined"
                 margin="normal"
+                readonly="readonly"
+                value={data}
                 disabled
                 sx={{
-                  width: "90%",
+                  width: "70%",
+                  marginTop: "2rem",
                 }}
               />
-              <TextField
+
+              {/* <TextField
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
                 margin="normal"
+                padding="1rem"
+                type={visible ?"text":"password"}
                 required
                 sx={{
-                  width: "90%",
+                  width: "70%",
+                  height: "6rem",
+                  marginTop: "2rem",
                 }}
-                onChange={handlePassChange}
+                icon={ visible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>} */}
+             
+                {/* onChange={handlePassChange}
+              /> */}
+
+              <FormControl sx={{ width: "70%",
+                  height: "6rem",
+                  marginTop: "2rem", }} variant="outlined">
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
+               onChange={handlePassChange}
+                id="outlined-adornment-password"
+                type={showPassword ? "text" : "password"}
+                
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
               />
+            </FormControl>
+              
+             
               <br />
               <Button
-                href="#text-buttons"
                 variant="contained"
                 sx={{
                   display: "flex",
-                  justyfyContent: "center",
+                  justyfyContent: "space-between",
                   alignItems: "center",
-                  width: "90%",
+                  width: "70%",
                   borderRadius: "35px",
-                  backgroundColor: "black",
-                  borderColor: "gray",
-                  margin: "0.5rem",
-                  padding: "0.6rem",
+                  height: "3.5rem",
+                  color: "black",
+                  marginTop: "4rem",
                 }}
-               type="onSubmit"
+                type="onSubmit"
               >
                 Login
               </Button>
@@ -132,4 +176,4 @@ function handlePassChange(e){
   );
 }
 
-export default Login;
+export default Login2;

@@ -7,15 +7,15 @@ import { AiOutlineApple } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 
+
+
+export let data='';
+
 function Login() {
   const [open, setOpen] = useState(false);
-   const [input, setInput]=useState('');
-
-  const nav = useNavigate();
-
-  // function handleNextClick() {
-  //   nav("/loginto");
-  // }
+  const [input, setInput]=useState('');
+  
+  const nav = useNavigate()
 
   function Google() {
     alert("Google login");
@@ -25,51 +25,57 @@ function Login() {
   }
 
   function ForgetPass() {
-    alert("Forget Pssword");
+    alert("Forget Password");
   }
 
   //handle input field 
   function handleChange(e){
    
     setInput(e.target.value);
-    console.log(input)
+    // console.log(input)
+    
 
   }
+
   let getData=JSON.parse(localStorage.getItem('userData'));
   console.log(getData);
 
   function handleNextClick(e){
     e.preventDefault();
      const newData=getData.filter((i)=>i.userName === input || i.phone === input || i.email === input);
-
+          
      if(newData.length===0){
       alert('invalid user data');
      }
-     else{
+     else{ 
+      data=input
       nav('/loginto')
      }
-
   }
+
   return (
+
     <div className={l.main}>
+
       <Button onClick={() => setOpen(true)}>
         {<RxCross2 size={30} sx={{ color: "black" }} />}
       </Button>
+
       <Modal
         open={open}
         onClose={() => setOpen(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="model-model-description"
         sx={{
-          border: "none",
+          border: "none", 
         }}
       >
         <Box
-          width={580}
-          height={645}
+          width={780}
+          height={620}
           position="absolute"
           top="5%"
-          left="30%"
+          left="25%"
           backgroundColor="#fff"
           padding="2rem"
           className={l.box}
@@ -79,7 +85,7 @@ function Login() {
               {
                 <SiTwitter
                   style={{
-                    marginLeft: "10rem",
+                    marginLeft: "14rem",
                   }}
                   size="45px"
                   color="blue"
@@ -87,7 +93,7 @@ function Login() {
               }
             </div>
 
-            <Typography sx={{ margin: "1.5rem", marginLeft: "3rem" }}>
+            <Typography sx={{ margin: "1.5rem", marginLeft: "6rem" }}>
               <h1>Sign in to Twitter</h1>
             </Typography>
 
@@ -95,25 +101,28 @@ function Login() {
               variant="outlined"
               sx={{
                 display: "flex",
-                justyfyContent: "center",
+                justyfyContent: "space-between",
                 alignItems: "center",
-                width: "90%",
+                width: "85%",
                 borderRadius: "35px",
                 borderColor: "gray",
                 height: "3.5rem",
+                color:'black',
               }}
               onClick={Google}
             >
-              <p> Sign in with Google</p> {<FcGoogle />}
+            {<FcGoogle size={30} style={{margin:'1rem'}}/>} Sign in with Google
             </Button>
+
             <br />
+
             <Button
-              variant="outlined"
+              variant="outlined" 
               sx={{
                 display: "flex",
-                justyfyContent: "center",
+                justyfyContent: 'space-between',
                 alignItems: "center",
-                width: "90%",
+                width: "85%",
                 borderRadius: "35px",
                 borderColor: "gray",
                 height: "3.5rem",
@@ -121,8 +130,8 @@ function Login() {
               }}
               onClick={Apple}
             >
-              {<AiOutlineApple size={20} sx={{ color: "black" }} />}{" "}
-              <p> Sign in with Apple</p>
+              {<AiOutlineApple size={30} style={{ color: "black",margin:'1rem' }} />}{" "}
+              Sign in with Apple
             </Button>
 
             <div className={l.or}>
@@ -130,6 +139,7 @@ function Login() {
                 _________________<sub> or </sub>__________________
               </span>
             </div>
+
 
             <form>
               <TextField
@@ -139,10 +149,12 @@ function Login() {
                 margin="normal"
                 required
                 sx={{
-                  width: "90%",
+                  width: "85%",
+                  textAlign:'center',
                 }}
                 onChange={handleChange}
               />
+              
               <br />
               <Button
                 variant="contained"
@@ -150,7 +162,7 @@ function Login() {
                   display: "flex",
                   justyfyContent: "center",
                   alignItems: "center",
-                  width: "90%",
+                  width: "85%",
                   borderRadius: "35px",
                   backgroundColor: "black",
                   borderColor: "gray",
@@ -159,16 +171,21 @@ function Login() {
                 }}
                 onClick={handleNextClick}
               >
+
                 Next
               </Button>
+
+              {/* <Login2 DisData={input}/> */}
+
               <br />
+
               <Button
                 variant="outlined"
                 sx={{
                   display: "flex",
                   justyfyContent: "center",
                   alignItems: "center",
-                  width: "90%",
+                  width: "85%",
                   borderRadius: "35px",
                   borderColor: "gray",
                   padding: "0.8rem",
@@ -180,9 +197,12 @@ function Login() {
               </Button>
 
               <p style={{ margin: "2rem" }}>
-                Don't have an account? <Link to="/signup">Sign-Up</Link>
+                Don't have an account? <Link to="/signup" >Sign-Up</Link>
               </p>
             </form>
+
+           
+
           </div>
         </Box>
       </Modal>
