@@ -104,24 +104,6 @@ function Login2() {
                 }}
               />
 
-              {/* <TextField
-                id="outlined-basic"
-                label="Password"
-                variant="outlined"
-                margin="normal"
-                padding="1rem"
-                type={visible ?"text":"password"}
-                required
-                sx={{
-                  width: "70%",
-                  height: "6rem",
-                  marginTop: "2rem",
-                }}
-                icon={ visible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>} */}
-             
-                {/* onChange={handlePassChange}
-              /> */}
-
               <FormControl sx={{ width: "70%",
                   height: "6rem",
                   marginTop: "2rem", }} variant="outlined">
