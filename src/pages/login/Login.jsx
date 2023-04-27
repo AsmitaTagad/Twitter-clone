@@ -7,14 +7,13 @@ import { AiOutlineApple } from "react-icons/ai";
 // import { RxCross2 } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 
-export let data=' ';
+export let data = " ";
 
 function Login() {
   // const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
 
   const nav = useNavigate();
-
 
   function Google() {
     alert("Google login");
@@ -30,10 +29,10 @@ function Login() {
   //handle input field
   function handleChange(e) {
     setInput(e.target.value);
-    console.log(input);
+    // console.log(input);
   }
   let getData = JSON.parse(localStorage.getItem("userData"));
-  console.log(getData);
+  // console.log(getData);
 
   function handleNextClick(e) {
     e.preventDefault();
@@ -44,13 +43,12 @@ function Login() {
     if (newData.length === 0) {
       alert("invalid user data");
     } else {
-      data=input
+      data = input;
       nav("/loginto");
     }
   }
   return (
     <div className={l.main}>
-      
       <Modal
         open="true"
         // onClose={() => setOpen(false)}
@@ -100,7 +98,6 @@ function Login() {
                 borderRadius: "35px",
                 borderColor: "gray",
                 height: "3.5rem",
-                
               }}
               onClick={Google}
             >
