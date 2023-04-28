@@ -1,0 +1,28 @@
+.searchInput{
+    height: 4rem;
+    width: 53vh;
+    padding-left: 2em;
+    padding-right: 3em;
+    border-radius: 20em;
+    margin-top:2rem;
+    font-size: 1.1em;
+ }
+ 
+ .icon{
+     display: flex;
+     flex-direction: column;
+     /* border: 1px solid black; */
+     position: relative;
+ }
+ .icon2{
+     font-size: 1.2em;
+     position: absolute;
+     top:1em;
+     left:1em;
+     margin-top:2rem;
+ }
+
+ .result{
+    width: 20vw;
+    padding:10px 25px;
+ }

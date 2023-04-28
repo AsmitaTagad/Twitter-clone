@@ -100,11 +100,12 @@ function Login() {
                 borderRadius: "35px",
                 borderColor: "gray",
                 height: "3.5rem",
+                color: "black",
                 
               }}
               onClick={Google}
             >
-              <p> Sign in with Google</p> {<FcGoogle />}
+              {<FcGoogle size={30} style={{ margin:'1rem' }} />} <p> Sign in with Google</p> 
             </Button>
             <br />
             <Button
@@ -121,7 +122,7 @@ function Login() {
               }}
               onClick={Apple}
             >
-              {<AiOutlineApple size={20} sx={{ color: "black" }} />}{" "}
+              {<AiOutlineApple size={30}  style={{ color: "black", margin:'1rem' }} />}{" "}
               <p> Sign in with Apple</p>
             </Button>
 

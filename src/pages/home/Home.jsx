@@ -1,34 +1,23 @@
 import React from "react";
 // import Login from "../login/Login";
 import SideBar from "../../side-bar/sideBar";
-// import {Grid,Item} from '@mui/material';
-// import RightSide from './rightSide';
+import RightSide from '../rightSide/RightSide';
 
 function Home() {
   return (
-    <div>
-      <div style={{ display: "flex" }}>
+   
+      <div style={{ display: "flex",justifyContent:"space-between"}}>
         <div>
           <SideBar />
         </div>
         <div>
          {/* <Login /> */}
         </div>
+       <div style={{marginRight:"1.5rem"}}>
+      <RightSide/>
       </div>
-      {/* <RightSide/> */}
     </div>
-
-//     <Grid container spacing={2}>
-//   <Grid item xs={3} md={8}>
-//     <Item> <SideBar /> </Item>
-//   </Grid>
-//   <Grid item xs={6} md={4}>
-//     <Item> <Login /> </Item>
-//   </Grid>
-//   <Grid item xs={3} md={4}>
-//     <Item>right side</Item>
-//   </Grid>
-// </Grid>
+   
   );
 }
 
