@@ -5,6 +5,7 @@
     margin-top: 1em;
     width: 26vw;
     border-radius: 4px grey;   
+    /* overflow: scroll; */
 }
 
 .head{
@@ -18,7 +19,11 @@
     justify-content: space-between;
     cursor: pointer;
     gap: 1em;
+    /* background-color: blue; */
 
+}
+.content{
+    /* margin-left: -70rem; */
 }
 
 .contentmain:hover{
@@ -36,18 +41,21 @@
  }
  .image{
       border-radius: 50% ;
-      height: 70em;
-      width: 70em;
+      height: 40px;
+      width: 40px;
       margin-left: 2rem;
+      background-color: rgb(255, 128, 0);
  }
 
- .btn{
+ button{
     padding:0.5rem;
     margin-right:1rem;
     background-color: black;
     color: #fff;
     border-radius: 5px;
     margin-bottom: 1rem;
+    /* margin-top: 1rem; */
+    
     
  }
 
