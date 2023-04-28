@@ -7,6 +7,8 @@ import TweetCard from "../../atoms/card/Card";
 import tweetsData from "../../assets/data/tweets.json";
 // import {Grid,Item} from '@mui/material';
 // import RightSide from './rightSide';
+import Footer from "../../components/footer/footer";
+import Feed from "../feed/feed";
 
 function Home() {
   // console.log(tweetsData);
@@ -57,6 +59,10 @@ function Home() {
         <div>{/* <Login /> */}</div>
       </div>
       {/* <RightSide/> */}
+      {/* <RegisterForm />
+      <Login /> */}
+      {/* <Feed /> */}
+      <Footer />
     </div>
 
     //     <Grid container spacing={2}>

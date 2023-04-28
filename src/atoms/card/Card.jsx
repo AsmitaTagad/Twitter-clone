@@ -1,8 +1,9 @@
 import { FaRegComment } from "react-icons/fa";
 import { AiOutlineRetweet } from "react-icons/ai";
 import { FcLikePlaceholder } from "react-icons/fc";
-import { MdOutlineLeaderboard } from "react-icons/md";
+// import { MdOutlineLeaderboard } from "react-icons/md";
 import { FiShare } from "react-icons/fi";
+import { IoIosStats } from "react-icons/io";
 
 import * as React from "react";
 import { styled } from "@mui/material/styles";
@@ -20,6 +21,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Stle from "./Card.module.css";
 
 export default function TweetCard(props) {
   return (
@@ -29,6 +31,7 @@ export default function TweetCard(props) {
         width: "35rem",
         border: "1px solid #DDDDDD",
       }}
+      className={Stle.card}
     >
       <CardHeader
         avatar={
@@ -77,7 +80,7 @@ export default function TweetCard(props) {
           <FcLikePlaceholder /> &nbsp; &nbsp; {props.likeCount}
         </IconButton>
         <IconButton aria-label="view" sx={{ fontSize: "17px" }}>
-          <MdOutlineLeaderboard /> &nbsp; &nbsp; {props.likeCount}
+          <IoIosStats /> &nbsp; &nbsp; {props.likeCount}
         </IconButton>
         <IconButton aria-label="view" sx={{ fontSize: "17px" }}>
           <FiShare /> &nbsp; &nbsp; {props.reTweetsCount}
