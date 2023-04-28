@@ -3,4 +3,5 @@
     position: sticky;
     top:0;
     opacity: 98%;
+    z-index: 10;
 }

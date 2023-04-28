@@ -39,14 +39,16 @@ function Login() {
     // console.log(input);
   }
 
-  let getData = JSON.parse(localStorage.getItem("userData"));
+  let getData = JSON.parse(localStorage.getItem("userData"))
+    ? JSON.parse(localStorage.getItem("userData"))
+    : [];
   // console.log(getData);
 
   function handleSubmit(e) {
     e.preventDefault();
-    const newData = getData.findIndex((i) => i.password === input);
+    const newData = getData.find((i) => i.pass == input);
 
-    if (newData.length === 0) {
+    if (newData == undefined) {
       alert("user not found");
     } else {
       dispatch(loginOrNotSlice.actions.userLogin());

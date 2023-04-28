@@ -1,27 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import Login from "../login/Login";
 import SideBar from "../../side-bar/sideBar";
 import Navbar from "../../components/navbar/Navbar";
+import Card from "../../atoms/card/Card";
+import TweetCard from "../../atoms/card/Card";
+import tweetsData from "../../assets/data/tweets.json";
 // import {Grid,Item} from '@mui/material';
 // import RightSide from './rightSide';
 
 function Home() {
+  // console.log(tweetsData);
   return (
     <div>
       <hr />
       <div style={{ display: "flex" }}>
-        <div style={{ flexGrow: "1" }}>
+        <div
+          style={{
+            // flexGrow: "1",
+            width: "30%",
+          }}
+        >
           <SideBar />
         </div>
 
         <div
           style={{
-            flexGrow: "4",
+            // flexGrow: "4",
             border: "1px solid #DDDDDD",
             borderTop: "none",
+            width: "fit-content",
           }}
         >
           <Navbar />
+
+          {tweetsData.map((tweet) => (
+            <div key={tweet.id}>
+              <TweetCard
+                commentCount={tweet.commentCount}
+                content={tweet.content}
+                createAt={tweet.createdAt}
+                image={tweet.image}
+                isLiked={tweet.isLiked}
+                likeCount={tweet.likeCount}
+                reTweetsCount={tweet.reTweetsCount}
+                tweetedBy={tweet.tweetedBy}
+              />
+            </div>
+          ))}
         </div>
 
         {/* content */}

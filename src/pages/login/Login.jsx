@@ -31,16 +31,16 @@ function Login() {
     setInput(e.target.value);
     // console.log(input);
   }
-  let getData = JSON.parse(localStorage.getItem("userData"));
+  let getData = JSON.parse(localStorage.getItem("userData"))
+    ? JSON.parse(localStorage.getItem("userData"))
+    : [];
   // console.log(getData);
 
   function handleNextClick(e) {
     e.preventDefault();
-    const newData = getData.filter(
-      (i) => i.userName === input || i.phone === input || i.email === input
-    );
+    const newData = getData.find((i) => i.name === input || i.phone == input);
 
-    if (newData.length === 0) {
+    if (newData == undefined) {
       alert("invalid user data");
     } else {
       data = input;
