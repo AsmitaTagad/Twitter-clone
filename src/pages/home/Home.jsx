@@ -3,8 +3,8 @@ import Twitter from "../tweett/Tweet";
 function Home() {
   return (
     <div>
-    <h1>dfghjklkjhgf</h1>
-      {/* <Twitter/> */}
+      <h1>dfghjklkjhgf</h1>
+      <Twitter />
     </div>
   );
 }
