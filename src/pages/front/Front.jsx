@@ -11,8 +11,8 @@ function RegistrationPage() {
   const [isRegisterPage, setIsRegisterPage] = useState(false);
 
   const handleClose = () => {
-    // Handle close button click
-    console.log("Close button clicked");
+    // Close the current window
+    window.close();
   };
 
   const handleGoogleSignup = () => {
@@ -131,3 +131,4 @@ function RegistrationPage() {
 }
 
 export default RegistrationPage;
+

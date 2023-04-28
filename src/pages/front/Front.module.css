@@ -1,4 +1,4 @@
- .registrationPage {
+  .registrationPage {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,8 +109,7 @@ border-radius: 10px;
     font: 15px;
   }
   
-  
-   /* body{
+    /* body{
     background-color:grey;
     width: 15cm; 
   height: 650px; 
@@ -170,7 +169,7 @@ border-radius: 10px;
         padding-top: 20px;
         position: absolute;
         margin-left: 1rem;
-        /* top: 90px; */
+        
         
       }  
      .fullcontaine{
@@ -192,4 +191,6 @@ border-radius: 10px;
         display: inline;
       }
 
-       
+        
+
+        

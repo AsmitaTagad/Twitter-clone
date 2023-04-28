@@ -4,9 +4,17 @@ import rm from "./RightMiddleSec.module.css";
 const RightMiddleSec = () => {
   const [userdata, setUserData] = useState([]);
   const [show, setShow] = useState(3);
+  const [isFollow, setIsFollow] = useState(false);
 
   const handleShow = () => {
     setShow(show + 3);
+  };
+
+  const handleFollowed = (id) => {
+    console.log(userdata);
+    const data = userdata.find((item) => item.user_id == id);
+    data.children = !data.children;
+    setIsFollow(!isFollow);
   };
 
   useEffect(() => {
@@ -40,7 +48,12 @@ const RightMiddleSec = () => {
                   <p>@{element.last_name}</p>
                 </div>
                 <div>
-                  <button className={rm.btn}>Follow</button>
+                  <button
+                    className={rm.btn}
+                    onClick={() => handleFollowed(element.user_id)}
+                  >
+                    {element.children ? "Followed" : "Follow"}
+                  </button>
                 </div>
               </div>
             </div>

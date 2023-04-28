@@ -32,24 +32,22 @@ const Searchbar = () => {
   }
 
   return (
-    <>
-      <div className={s.icon}>
-        <div>
-          <input
-            className={s.searchInput}
-            type="text"
-            placeholder=" Search Twitter"
-            onChange={(e) => handleFilter(e.target.value)}
-          />
-          <BsSearch className={s.icon2} />
-        </div>
-        <div className={s.result}>
-          {search.map((d, i) => {
-            return <div key={i}>{d.first_name}</div>;
-          })}
-        </div>
+    <div className={s.icon}>
+      <div>
+        <input
+          className={s.searchInput}
+          type="text"
+          placeholder=" Search Twitter"
+          onChange={(e) => handleFilter(e.target.value)}
+        />
+        <BsSearch className={s.icon2} />
       </div>
-    </>
+      <div className={s.result}>
+        {search.map((d, i) => {
+          return <div key={i}>{d.first_name}</div>;
+        })}
+      </div>
+    </div>
   );
 };
 

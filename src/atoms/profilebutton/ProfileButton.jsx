@@ -31,7 +31,7 @@ function ProfileButton() {
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <div style={{ width: "100%", textAlign: "end" }}>
+    <div style={{ width: "100%", textAlign: "end", marginTop: "50px" }}>
       <Button
         aria-describedby={id}
         variant="outline"

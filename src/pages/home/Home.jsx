@@ -12,7 +12,7 @@ import ProfileButton from "../../atoms/profilebutton/ProfileButton";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import RightSide from "../rightSide/RightSide";
-
+import Twitter from "../tweett/Tweet";
 function Home() {
   const isLogin = useSelector((state) => state.loginData.isLogin);
   const tweetsData = useSelector((state) => state.tweetData.tweets);
@@ -49,6 +49,7 @@ function Home() {
           }}
         >
           <Navbar />
+          <Twitter />
 
           {tweetsData.map((tweet) => (
             <div key={tweet.id}>
@@ -80,18 +81,6 @@ function Home() {
       {/* <Feed /> */}
       {!isLogin && <Footer />}
     </div>
-
-    //     <Grid container spacing={2}>
-    //   <Grid item xs={3} md={8}>
-    //     <Item> <SideBar /> </Item>
-    //   </Grid>
-    //   <Grid item xs={6} md={4}>
-    //     <Item> <Login /> </Item>
-    //   </Grid>
-    //   <Grid item xs={3} md={4}>
-    //     <Item>right side</Item>
-    //   </Grid>
-    // </Grid>
   );
 }
 
