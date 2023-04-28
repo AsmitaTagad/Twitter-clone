@@ -22,13 +22,33 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Stle from "./Card.module.css";
+import { useDispatch } from "react-redux";
+import { tweetDataSlice } from "../../assets/redux/ReduxData";
 
 export default function TweetCard(props) {
+  const dispatch = useDispatch();
+
+  const handleLike = (id) => {
+    dispatch(tweetDataSlice.actions.addLike(id));
+  };
+  const handleComment = (id) => {
+    dispatch(tweetDataSlice.actions.addComment(id));
+  };
+  const handleReTweet = (id) => {
+    dispatch(tweetDataSlice.actions.addReTweetCount(id));
+  };
+  const handleViewCount = (id) => {
+    dispatch(tweetDataSlice.actions.addViewCount(id));
+  };
+  const handleShareCount = (id) => {
+    dispatch(tweetDataSlice.actions.addShareCount(id));
+  };
+
   return (
     <Card
       sx={{
         // maxWidth: 645
-        width: "35rem",
+        width: "100%",
         border: "1px solid #DDDDDD",
       }}
       className={Stle.card}
@@ -71,19 +91,24 @@ export default function TweetCard(props) {
       />
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
         <IconButton aria-label="comment" sx={{ fontSize: "17px" }}>
-          <FaRegComment /> &nbsp; &nbsp; {props.commentCount}
+          <FaRegComment onClick={() => handleComment(props.id)} /> &nbsp; &nbsp;{" "}
+          {props.commentCount}
         </IconButton>
         <IconButton aria-label="retweet" sx={{ fontSize: "17px" }}>
-          <AiOutlineRetweet /> &nbsp; &nbsp; {props.reTweetsCount}
+          <AiOutlineRetweet onClick={() => handleReTweet(props.id)} /> &nbsp;
+          &nbsp; {props.reTweetsCount}
         </IconButton>
         <IconButton aria-label="add to favorites" sx={{ fontSize: "17px" }}>
-          <FcLikePlaceholder /> &nbsp; &nbsp; {props.likeCount}
+          <FcLikePlaceholder onClick={() => handleLike(props.id)} /> &nbsp;
+          &nbsp; {props.likeCount}
         </IconButton>
         <IconButton aria-label="view" sx={{ fontSize: "17px" }}>
-          <IoIosStats /> &nbsp; &nbsp; {props.likeCount}
+          <IoIosStats onClick={() => handleViewCount(props.id)} /> &nbsp; &nbsp;{" "}
+          {props.likeCount}
         </IconButton>
         <IconButton aria-label="view" sx={{ fontSize: "17px" }}>
-          <FiShare /> &nbsp; &nbsp; {props.reTweetsCount}
+          <FiShare onClick={() => handleShareCount(props.id)} /> &nbsp; &nbsp;{" "}
+          {props.reTweetsCount}
         </IconButton>
       </div>
 

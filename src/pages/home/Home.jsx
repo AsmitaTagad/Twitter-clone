@@ -4,14 +4,28 @@ import SideBar from "../../side-bar/sideBar";
 import Navbar from "../../components/navbar/Navbar";
 import Card from "../../atoms/card/Card";
 import TweetCard from "../../atoms/card/Card";
-import tweetsData from "../../assets/data/tweets.json";
 // import {Grid,Item} from '@mui/material';
 // import RightSide from './rightSide';
 import Footer from "../../components/footer/footer";
 import Feed from "../feed/feed";
+import ProfileButton from "../../atoms/profilebutton/ProfileButton";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 function Home() {
+  const isLogin = useSelector((state) => state.loginData.isLogin);
+  const tweetsData = useSelector((state) => state.tweetData.tweets);
   // console.log(tweetsData);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/");
+    } else {
+      navigate("/signin");
+    }
+  }, [isLogin]);
+
   return (
     <div>
       <hr />
@@ -30,7 +44,7 @@ function Home() {
             // flexGrow: "4",
             border: "1px solid #DDDDDD",
             borderTop: "none",
-            width: "fit-content",
+            width: "37%",
           }}
         >
           <Navbar />
@@ -38,6 +52,7 @@ function Home() {
           {tweetsData.map((tweet) => (
             <div key={tweet.id}>
               <TweetCard
+                id={tweet.id}
                 commentCount={tweet.commentCount}
                 content={tweet.content}
                 createAt={tweet.createdAt}
@@ -62,7 +77,7 @@ function Home() {
       {/* <RegisterForm />
       <Login /> */}
       {/* <Feed /> */}
-      <Footer />
+      {!isLogin && <Footer />}
     </div>
 
     //     <Grid container spacing={2}>
