@@ -1,3 +1,88 @@
+// import React, { useEffect } from "react";
+// // import Login from "../login/Login";
+// import SideBar from "../../side-bar/sideBar";
+// import Navbar from "../../components/navbar/Navbar";
+// import Card from "../../atoms/card/Card";
+// import TweetCard from "../../atoms/card/Card";
+// // import {Grid,Item} from '@mui/material';
+// // import RightSide from './rightSide';
+// import Footer from "../../components/footer/footer";
+// import Feed from "../feed/feed";
+// import ProfileButton from "../../atoms/profilebutton/ProfileButton";
+// import { useSelector } from "react-redux";
+// import { useNavigate } from "react-router";
+// import RightSide from "../rightSide/RightSide";
+
+// function Home() {
+//   const isLogin = useSelector((state) => state.loginData.isLogin);
+//   const tweetsData = useSelector((state) => state.tweetData.tweets);
+//   // console.log(tweetsData);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     if (isLogin) {
+//       navigate("/");
+//     } else {
+//       navigate("/signin");
+//     }
+//   }, [isLogin]);
+
+//   return (
+//     <div>
+//       <hr />
+//       <div style={{ display: "flex" }}>
+//         <div
+//           style={{
+//             // flexGrow: "1",
+//             width: "30%",
+//           }}
+//         >
+//           <div style={{ display: "flex" }}>
+//             <div>
+//               <SideBar />
+//             </div>
+
+//             <div
+//               style={{
+//                 // flexGrow: "4",
+//                 border: "1px solid #DDDDDD",
+//                 borderTop: "none",
+//                 width: "37%",
+//               }}
+//             >
+//               <Navbar />
+
+//               {tweetsData.map((tweet) => (
+//                 <div key={tweet.id}>
+//                   <TweetCard
+//                     id={tweet.id}
+//                     commentCount={tweet.commentCount}
+//                     content={tweet.content}
+//                     createAt={tweet.createdAt}
+//                     image={tweet.image}
+//                     isLiked={tweet.isLiked}
+//                     likeCount={tweet.likeCount}
+//                     reTweetsCount={tweet.reTweetsCount}
+//                     tweetedBy={tweet.tweetedBy}
+//                   />
+//                 </div>
+//               ))}
+//             </div>
+
+//             {/* content */}
+
+//             <div style={{ flexGrow: "3" }}>
+//               <h1>Sidebar</h1>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Home;
+
 import React, { useEffect } from "react";
 // import Login from "../login/Login";
 import SideBar from "../../side-bar/sideBar";
@@ -11,6 +96,7 @@ import Feed from "../feed/feed";
 import ProfileButton from "../../atoms/profilebutton/ProfileButton";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import RightSide from "../rightSide/RightSide";
 
 function Home() {
   const isLogin = useSelector((state) => state.loginData.isLogin);
@@ -69,7 +155,7 @@ function Home() {
         {/* content */}
 
         <div style={{ flexGrow: "3" }}>
-          <h1>Sidebar</h1>
+          <RightSide />
         </div>
         <div>{/* <Login /> */}</div>
       </div>
