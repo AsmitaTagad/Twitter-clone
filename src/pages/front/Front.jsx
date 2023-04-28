@@ -14,9 +14,13 @@ import { FcGoogle } from "react-icons/fc";
 import { GrClose } from "react-icons/gr";
 
 function RegistrationPage() {
+  // const handleClose = () => {
+  //   // Handle close button click
+  //   console.log("Close button clicked");
+  // };
   const handleClose = () => {
-    // Handle close button click
-    console.log("Close button clicked");
+    // Close the current window
+    window.close();
   };
 
   const handleGoogleSignup = () => {
@@ -102,3 +106,4 @@ function RegistrationPage() {
 }
 
 export default RegistrationPage;
+

@@ -1,0 +1,90 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e6ecf0;
+}
+
+.twitterui {
+  display: flex;
+  flex-direction: row;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background-color: #fff;
+  box-shadow: 0.125rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  width: 37.5rem;
+}
+
+.twitterui .leftpanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1.25rem;
+} 
+
+.twitterui .maincontent > div {
+  margin-bottom: 0.625rem;
+}
+
+.twitterui .maincontent .whatshappening {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 0.0625rem solid #e6ecf0;
+  padding-top: 0.625rem;
+} 
+
+ .twitterui .maincontent .whatshappening input {
+  border: none;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 0.625rem;
+  outline: none;
+  cursor: pointer;
+
+}   
+
+
+.tweetbtn {
+  margin-top: 0.625rem;
+  padding: 0.625rem; 
+  border: none;
+  border-radius: 1.25rem; 
+  background-color: #1da1f2;
+  color: #fff;
+  font-size: 1.125rem; 
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.imagePreviewContainer {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.625rem 0; 
+}
+
+.imagePreview {
+  max-width: 100%;
+  max-height: 25rem; 
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+textarea {
+  font-size: 1.2rem; 
+  border: none;
+  outline: none;
+}
+
+.whatshappening textarea {
+  font-size: 1.2rem; 
+  border: none;
+  outline: none;
+}
+
+  

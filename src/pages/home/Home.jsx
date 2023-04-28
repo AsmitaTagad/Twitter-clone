@@ -1,9 +1,10 @@
 import React from "react";
-
+import Twitter from "../tweett/Tweet";
 function Home() {
   return (
     <div>
-      <h1>This is the Home page</h1>
+    <h1>dfghjklkjhgf</h1>
+      {/* <Twitter/> */}
     </div>
   );
 }
