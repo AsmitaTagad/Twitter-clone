@@ -9,6 +9,8 @@ import Login from "../login/Login";
 //       <RegisterForm />
 //       <Login />
 import SideBar from "../../side-bar/sideBar";
+import Footer from "../../components/footer/footer";
+import Feed from "../feed/feed";
 
 function Home() {
   return (
@@ -23,6 +25,9 @@ function Home() {
       </div>
       <RegisterForm />
       <Login />
+      <Feed/>
+      <Footer/>
+
     </div>
   );
 }

@@ -11,6 +11,7 @@
 
 .sidebarOption {
   float: left;
+  border-right: 0.2px solid rgb(122, 114, 114);
 }
 
 .sliderDetails :hover {

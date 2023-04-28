@@ -1,0 +1,128 @@
+.Footer {
+  border: 2px none;
+  height: 65px;
+  width: 100%;
+  background-color: rgb(29, 155, 240);
+  color: white;
+  position: sticky;
+}
+
+.LogIn {
+  display: inline;
+  position: absolute;
+  right: 230px;
+  width: 75px;
+  height: 45px;
+  bottom: 10px;
+  background-color: rgb(29, 155, 240);
+  border-radius: 25px;
+  border: 0.5px solid white;
+  color: white;
+  font-size: 15px;
+}
+
+.SignUp {
+  display: inline;
+  position: absolute;
+  right: 135px;
+  width: 75px;
+  height: 45px;
+  bottom: 10px;
+  border-radius: 25px;
+  background-color: white;
+  border: 0.5px solid white;
+  color: black;
+  font-size: 15px;
+}
+
+.TextBottom h1 {
+  border: none;
+  height: 100%;
+  width: 785px;
+  padding-left: 325px;
+  font-size: 24px;
+  margin: 4px;
+}
+.TextBottom h3 {
+  font-size: 16px;
+  border: none;
+  height: 100%;
+  width: 785px;
+  padding-left: 300px;
+}
+
+@media screen and (max-width: 1080px) {
+  .TextBottom h1 {
+    display: flex;
+    align-items: flex-start;
+    border: none;
+    height: 100%;
+    width: 785px;
+    font-size: 24px;
+    margin: 4px;
+    padding-left: 110px;
+  }
+  .TextBottom h3 {
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px;
+    border: none;
+    height: 100%;
+    width: 785px;
+    padding-left: 114px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .TextBottom h1 {
+    display: none;
+  }
+  .TextBottom h3 {
+    display: none;
+  }
+
+  .LogIn {
+    display: inline;
+    position: absolute;
+    right: 230px;
+    margin-right: 12rem;
+    width: 295px;
+    height: 45px;
+    bottom: 10px;
+    background-color: rgb(29, 155, 240);
+    border-radius: 25px;
+    border: 0.5px solid white;
+    color: white;
+    font-size: 15px;
+  }
+  .SignUp {
+    display: inline;
+    position: absolute;
+    right: 135px;
+    width: 295px;
+    height: 45px;
+    bottom: 10px;
+    margin-right: -3rem;
+    border-radius: 25px;
+    background-color: white;
+    border: 0.5px solid white;
+    color: black;
+    font-size: 15px;
+  }
+ 
+  }
+
+
+
+ 
+
+  /* .BottomBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .BottomBtn button {
+    width: 100%;
+    margin-bottom: 1rem;} */
