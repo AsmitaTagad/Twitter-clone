@@ -51,7 +51,7 @@ function Login() {
     if (newData == undefined) {
       alert("user not found");
     } else {
-      dispatch(loginOrNotSlice.actions.userLogin());
+      dispatch(loginOrNotSlice.actions.userLogin({ phone: data, pass: input }));
       alert("successfully login");
       // console.log(isLogin);
       nav("/");

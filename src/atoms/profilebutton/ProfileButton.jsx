@@ -1,16 +1,39 @@
 import { Avatar, Button, IconButton, Popover, Typography } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { red } from "@mui/material/colors";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginOrNotSlice } from "../../assets/redux/ReduxData";
 import { Navigate, useNavigate } from "react-router";
 import style from "./ProfileButton.module.css";
+
+export let userName = "";
+
 function ProfileButton() {
   //   const [open, setOpen] = useState(false);
   //   const isLogin = useSelector((state) => state.loginData.isLogin);
+  const localloginData = JSON.parse(localStorage.getItem("isLoginUser")) || {};
+  const localUserData = JSON.parse(localStorage.getItem("userData")) || [];
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  userName = name;
+  useEffect(() => {
+    const tempData = localUserData.find(
+      (item) =>
+        item.phone == localloginData.phone && item.pass == localloginData.pass
+    );
+    if (tempData != undefined) {
+      setName(tempData.name);
+      setPhone(tempData.phone);
+    } else {
+      setName("Guest");
+      setPhone("");
+    }
+    console.log(name, phone);
+  }, []);
 
   const handleLogOut = () => {
     dispatch(loginOrNotSlice.actions.userLogout());
@@ -31,23 +54,38 @@ function ProfileButton() {
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <div style={{ width: "100%", textAlign: "end", marginTop: "50px" }}>
+    <div style={{ width: "100%", textAlign: "end", marginTop: "35px" }}>
       <Button
         aria-describedby={id}
         variant="outline"
         onClick={handleClick}
-        sx={{ borderRadius: "50px" }}
+        sx={{ borderRadius: "50px", width: "100%" }}
       >
-        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-          R
-        </Avatar>{" "}
-        &nbsp;
-        <span className={style.profileBtnText}>
-          Profile
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        </span>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <div>
+            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              {name[0]}
+            </Avatar>{" "}
+          </div>
+          &nbsp;
+          <div>
+            <span className={style.profileBtnText}>
+              <div>{name}</div>
+              <div>{phone}</div>
+            </span>
+          </div>
+          <div>
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          </div>
+        </div>
       </Button>
       <Popover
         id={id}

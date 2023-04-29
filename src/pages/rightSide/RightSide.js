@@ -8,20 +8,20 @@ import RightBotSec from "../../components/RightSection/rightBotSec/RightBotSec";
 export default function RightSide() {
   return (
     <div className={r.container}>
-    <div>
-      <Searchbar/>
-    </div>
-  
-   <div>
-    <RightTopSec/>
-   </div>
-       <div>
-      <section className={r.middle}>
-        <RightMiddleSec />
-      </section>
+      <div className={r.searchbar}>
+        <Searchbar />
+      </div>
+
+      <div>
+        <RightTopSec />
       </div>
       <div>
-        <RightBotSec/>
+        <section className={r.middle}>
+          <RightMiddleSec />
+        </section>
+      </div>
+      <div>
+        <RightBotSec />
       </div>
     </div>
   );

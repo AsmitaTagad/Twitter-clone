@@ -1,5 +1,5 @@
 .box{
-    background-color: #f0f1f2;
+    background-color: #EFF3F4;
     height :auto;
     border: 0.2px ;
     margin-top: 1em;
@@ -12,6 +12,7 @@
 .head{
     padding:1.5em;
     border:  rgb(165, 163, 163);
+    font-size: .9rem;
    
 }
 
@@ -28,7 +29,7 @@
 }
 
 .contentmain:hover{
-    background-color: rgb(206, 211, 214);   
+    background-color: #efefef;   
 }
 
 .content{

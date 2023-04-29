@@ -4,6 +4,7 @@ import { FcLikePlaceholder } from "react-icons/fc";
 // import { MdOutlineLeaderboard } from "react-icons/md";
 import { FiShare } from "react-icons/fi";
 import { IoIosStats } from "react-icons/io";
+import { FcLike } from "react-icons/fc";
 
 import * as React from "react";
 import { styled } from "@mui/material/styles";
@@ -88,6 +89,7 @@ export default function TweetCard(props) {
           borderRadius: "20px",
           margin: "auto",
         }}
+        onDoubleClick={() => handleLike(props.id)}
       />
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
         <IconButton aria-label="comment" sx={{ fontSize: "17px" }}>
@@ -99,16 +101,20 @@ export default function TweetCard(props) {
           &nbsp; {props.reTweetsCount}
         </IconButton>
         <IconButton aria-label="add to favorites" sx={{ fontSize: "17px" }}>
-          <FcLikePlaceholder onClick={() => handleLike(props.id)} /> &nbsp;
-          &nbsp; {props.likeCount}
+          {props.isLiked ? (
+            <FcLike onClick={() => handleLike(props.id)} />
+          ) : (
+            <FcLikePlaceholder onClick={() => handleLike(props.id)} />
+          )}
+          &nbsp; &nbsp; {props.likeCount}
         </IconButton>
         <IconButton aria-label="view" sx={{ fontSize: "17px" }}>
           <IoIosStats onClick={() => handleViewCount(props.id)} /> &nbsp; &nbsp;{" "}
-          {props.likeCount}
+          {props.viewCount}
         </IconButton>
         <IconButton aria-label="view" sx={{ fontSize: "17px" }}>
           <FiShare onClick={() => handleShareCount(props.id)} /> &nbsp; &nbsp;{" "}
-          {props.reTweetsCount}
+          {props.shareCount}
         </IconButton>
       </div>
 

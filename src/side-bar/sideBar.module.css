@@ -9,6 +9,9 @@
   margin: 55px;
 
 }
+.Home{
+  margin-top: -20px;
+}
 
 .sidebarOption {
   float: left;
@@ -30,7 +33,7 @@
 }
 
 .Icon {
-  margin-top: 35px;
+  margin-top: 20px;
   margin-left: -60px;
   color: rgb(29, 155, 240);
   font-size: 35px;

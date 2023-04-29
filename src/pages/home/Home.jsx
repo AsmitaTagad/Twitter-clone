@@ -18,11 +18,14 @@ function Home() {
   const isLogin = useSelector((state) => state.loginData.isLogin);
   const tweetsData = useSelector((state) => state.tweetData.tweets);
   const [show, setShow] = useState(10);
-  // console.log(tweetsData);
+  const [localIsLogin, setLocalIsLogin] = useState(
+    JSON.parse(localStorage.getItem("isLoginUser")) || {}
+  );
+  console.log(tweetsData);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isLogin) {
+    if (isLogin || localIsLogin.isLocalLogin) {
       navigate("/");
     } else {
       navigate("/signin");
@@ -69,6 +72,8 @@ function Home() {
                 likeCount={tweet.likeCount}
                 reTweetsCount={tweet.reTweetsCount}
                 tweetedBy={tweet.tweetedBy}
+                viewCount={tweet.viewCount}
+                shareCount={tweet.shareCount}
               />
             </div>
           ))}

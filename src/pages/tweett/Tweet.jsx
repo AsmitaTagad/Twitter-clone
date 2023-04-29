@@ -4,6 +4,10 @@ import { IconButton } from "@mui/material";
 import EmojiPicker from "react-emoji-picker";
 import styles from "./Tweet.module.css";
 import { Avatar } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { tweetDataSlice } from "../../assets/redux/ReduxData";
+import { userName } from "../../atoms/profilebutton/ProfileButton";
+import { red } from "@mui/material/colors";
 
 function Tweeter() {
   const [mediaFile, setMediaFile] = useState(null);
@@ -13,6 +17,7 @@ function Tweeter() {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [image, setImage] = useState(null);
   const inputRef = useRef(null);
+  const dispatch = useDispatch();
 
   const handleMediaUpload = (event) => {
     setMediaFile(event.target.files[0]);
@@ -23,32 +28,49 @@ function Tweeter() {
   };
 
   function handleOnSelectImage(e) {
-    let reader = new FileReader();
-    reader.onload = (e) => {
-      setImage(e.target.result);
-    };
-    reader.readAsDataURL(e.target.files[0]);
+    // let reader = new FileReader();
+    // reader.onload = (e) => {
+    //   setImage(e.target.result);
+    // };
+    // reader.readAsDataURL(e.target.files[0]);
   }
 
-  const handleUploadClick = () => {
-    // Include the media file in the new tweet object only if it exists
-    const newTweet = {
-      message: message + (selectedEmoji ? selectedEmoji : ""),
-      image: image,
-      mediaFile: mediaFile ? mediaFile : null,
-    };
-    setTweets([newTweet, ...tweets]);
-    setMessage("");
-    setImage(null);
-    setSelectedEmoji(null);
-    setShowEmojiPicker(false);
-    setMediaFile(null); // Reset media file after posting the tweet
+  // const handleUploadClick = (e) => {
+  //   e.preventDefault();
+  //   // Include the media file in the new tweet object only if it exists
+  //   const newTweet = {
+  //     message: message + (selectedEmoji ? selectedEmoji : ""),
+  //     image: image,
+  //     mediaFile: mediaFile ? mediaFile : null,
+  //   };
+  //   setTweets([newTweet, ...tweets]);
+  //   setMessage("");
+  //   setImage(null);
+  //   setSelectedEmoji(null);
+  //   setShowEmojiPicker(false);
+  //   setMediaFile(null); // Reset media file after posting the tweet
+  // };
+
+  const handleUploadClick = (e) => {
+    e.preventDefault();
+    if (message != "") {
+      dispatch(tweetDataSlice.actions.addNewTweet(message));
+      setMessage("");
+    } else {
+      alert("Please write what you have to tweet.");
+    }
   };
 
   return (
     <div className={styles.twitterui}>
       <div className={styles.leftpanel}>
-        <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+        <Avatar
+          sx={{ bgcolor: red[500] }}
+          alt="Travis Howard"
+          src="/static/images/avatar/2.jpg"
+        >
+          {userName[0]}
+        </Avatar>
       </div>
       <div className={styles.maincontent}>
         <div contentEditable={true} />
@@ -96,7 +118,7 @@ function Tweeter() {
                 <Schedule />
               </IconButton>
               <IconButton
-                onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                // onClick={() => setShowEmojiPicker(!showEmojiPicker)}
                 style={{ color: " #1DA1F2" }}
               >
                 <EmojiEmotions />

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import s from "./Searchbar.module.css";
+import { Popover, Typography } from "@mui/material";
 
 const Searchbar = () => {
   const [search, setSearch] = useState([]);
   const [filterData, setFilterData] = useState([]);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     // fetch data from an API
@@ -28,6 +30,7 @@ const Searchbar = () => {
     // console.log(result);
     if (value != "") {
       setSearch(result);
+      // setOpen(true);
     }
   }
 
@@ -42,6 +45,7 @@ const Searchbar = () => {
         />
         <BsSearch className={s.icon2} />
       </div>
+
       <div className={s.result}>
         {search.map((d, i) => {
           return <div key={i}>{d.first_name}</div>;

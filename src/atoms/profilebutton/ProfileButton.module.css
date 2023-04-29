@@ -1,4 +1,8 @@
 
+.profileBtnText{
+    font-size: 10px;
+    font-weight: bold;
+}
 @media screen and (max-width:619px){
     .profileBtnText{
          display: none;

@@ -14,12 +14,48 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import ProfileButton from "../atoms/profilebutton/ProfileButton";
 import BasicPopover from "../atoms/profilebutton/ProfileButton";
 
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
+import Tweeter from "../pages/tweett/Tweet";
+import { GrFormClose } from "react-icons/gr";
+import { useNavigate } from "react-router";
+
 function SideBar() {
+  const [open, setOpen] = React.useState(false);
+  const [fullWidth, setFullWidth] = React.useState(true);
+  const [maxWidth, setMaxWidth] = React.useState("sm");
+  const navigate = useNavigate();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleMaxWidthChange = (event) => {
+    setMaxWidth(
+      // @ts-expect-error autofill of arbitrary value is not handled.
+      event.target.value
+    );
+  };
+
+  const handleFullWidthChange = (event) => {
+    setFullWidth(event.target.checked);
+  };
+
   return (
     <div className={styles.sidebarOption}>
       {/* <!-- sidebar starts  MUI--> (two icon varified organisation and twitter blue is missing)  */}
 
-      <AiOutlineTwitter className={styles.Icon} />
+      <AiOutlineTwitter className={styles.Icon} onClick={() => navigate("/")} />
 
       <div className={styles.sliderDetails}>
         <button className={styles.Home}>
@@ -59,9 +95,37 @@ function SideBar() {
         </button>{" "}
         <br />
       </div>
-      <button className={styles.TweetButton}>Tweet</button>
+      <button className={styles.TweetButton} onClick={handleClickOpen}>
+        Tweet
+      </button>
       <ProfileButton />
-      {/* <BasicPopover /> */}
+
+      <Dialog
+        fullWidth={fullWidth}
+        maxWidth={maxWidth}
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle>
+          <Button onClick={handleClose}>
+            <GrFormClose fontSize={30} />
+          </Button>
+        </DialogTitle>
+        <DialogContent>
+          <Box
+            noValidate
+            component="form"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              m: "auto",
+              width: "fit-content",
+            }}
+          >
+            <Tweeter />
+          </Box>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
