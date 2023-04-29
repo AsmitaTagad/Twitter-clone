@@ -1,0 +1,8 @@
+a{
+    color: rgb(44, 43, 43);
+    margin-left: 10px;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}

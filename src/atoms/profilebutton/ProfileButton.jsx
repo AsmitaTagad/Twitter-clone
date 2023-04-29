@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginOrNotSlice } from "../../assets/redux/ReduxData";
 import { Navigate, useNavigate } from "react-router";
-
+import style from "./ProfileButton.module.css";
 function ProfileButton() {
   //   const [open, setOpen] = useState(false);
   //   const isLogin = useSelector((state) => state.loginData.isLogin);
@@ -41,10 +41,13 @@ function ProfileButton() {
         <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
           R
         </Avatar>{" "}
-        &nbsp; Profile
-        <IconButton aria-label="settings">
-          <MoreVertIcon />
-        </IconButton>
+        &nbsp;
+        <span className={style.profileBtnText}>
+          Profile
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        </span>
       </Button>
       <Popover
         id={id}

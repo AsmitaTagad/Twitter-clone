@@ -15,6 +15,7 @@
   position: -webkit-sticky;
   position: sticky;
   top:0;
+  width: 100%;
   /* border-right: 0.2px solid rgb(122, 114, 114); */
 }
 
@@ -145,4 +146,11 @@
 
 }}
 
+@media screen and (max-width:460px){
+  .sliderDetails {
+    padding: 10px;
+    margin: 55px;
+    margin-left: -10%;
+  }
+}
 

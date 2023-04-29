@@ -1,10 +1,12 @@
 .searchInput{
-    height: 4rem;
-    width: 53vh;
-    padding-left: 2em;
-    padding-right: 3em;
+    height:40%;
+    width: 80%;
+    padding: 10px 0;
+    padding-left: 10%;
+    padding-right: 7%;
     border-radius: 20em;
     margin-top:2rem;
+    background-color: #f0f1f2;
     font-size: 1.1em;
  }
  
@@ -14,6 +16,14 @@
      top:0;
      display: flex;
      flex-direction: column;
+     width: 100%;
+     padding-left:20px;
+     padding-right:20px;
+     margin: auto;
+   
+     overflow:hidden ;
+
+     
      /* border: 1px solid black; */
      
  }
@@ -22,7 +32,7 @@
      position: absolute;
      top:1em;
      left:4em;
-     margin-top:2rem;
+     margin-top:1.6rem;
  }
 
  .result{

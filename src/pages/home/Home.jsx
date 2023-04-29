@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import Login from "../login/Login";
 import SideBar from "../../side-bar/sideBar";
 import Navbar from "../../components/navbar/Navbar";
@@ -13,9 +13,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import RightSide from "../rightSide/RightSide";
 import Twitter from "../tweett/Tweet";
+import { Button } from "@mui/material";
 function Home() {
   const isLogin = useSelector((state) => state.loginData.isLogin);
   const tweetsData = useSelector((state) => state.tweetData.tweets);
+  const [show, setShow] = useState(10);
   // console.log(tweetsData);
   const navigate = useNavigate();
 
@@ -26,6 +28,10 @@ function Home() {
       navigate("/signin");
     }
   }, [isLogin]);
+
+  const handleShowMore = () => {
+    setShow(show + 5);
+  };
 
   return (
     <div>
@@ -51,7 +57,7 @@ function Home() {
           <Navbar />
           <Twitter />
 
-          {tweetsData.map((tweet) => (
+          {tweetsData.slice(0, show).map((tweet) => (
             <div key={tweet.id}>
               <TweetCard
                 id={tweet.id}
@@ -66,19 +72,21 @@ function Home() {
               />
             </div>
           ))}
+          <div>
+            <Button
+              sx={{ color: "#1D9BF0" }}
+              variant="outline"
+              onClick={handleShowMore}
+            >
+              Show more
+            </Button>
+          </div>
         </div>
 
-        {/* content */}
-
-        <div style={{ flexGrow: "3" }}>
+        <div style={{ width: "33%" }}>
           <RightSide />
         </div>
-        <div>{/* <Login /> */}</div>
       </div>
-      {/* <RightSide/> */}
-      {/* <RegisterForm />
-      <Login /> */}
-      {/* <Feed /> */}
       {!isLogin && <Footer />}
     </div>
   );

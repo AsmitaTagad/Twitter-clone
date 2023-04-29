@@ -3,10 +3,10 @@
     height :auto;
     border: 0.2px ;
     margin-top: 1em;
-    width: 26vw;
+    width: 75%;
     border-radius: 30px;
     margin-left: 10%;  
-    /* overflow: scroll; */
+    overflow: hidden;
 }
 
 .head{
@@ -71,4 +71,22 @@
 }
 .ShowMore:hover{ 
    color:rgb(143, 143, 230);  
+}
+
+
+@media screen and (max-width:843px){
+    .head{
+        font-size: .5rem;
+    }
+    .contentmain{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:643px){
+   
+    .contentmain{
+        margin-top: 30px;
+    }
+    .btn{font-size: 5px;}
 }

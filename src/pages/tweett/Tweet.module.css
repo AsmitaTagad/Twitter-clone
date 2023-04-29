@@ -13,7 +13,8 @@
   border-radius: 1.25rem;
   background-color: #fff;
   box-shadow: 0.125rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-  width: 35rem;
+  width: 99%;
+  overflow: hidden;
 }
 
 .twitterui .leftpanel {
@@ -75,9 +76,14 @@
   object-fit: contain;
   margin: 0 auto;
 }
+.maincontent{
+
+  width: 100%;
+}
 
 textarea {
-  font-size: 1.2rem; 
+  font-size: 1.2%; 
+  width: 100%;
   border: none;
   outline: none;
 }
@@ -86,14 +92,23 @@ textarea {
   font-size: 1.2rem; 
   border: none;
   outline: none;
+  width: 100%;
 }
 
   .iconlist{
     display: flex;
     justify-content:space-evenly;
+    width: 100%;
+  
   }
   .btn{
    
-    margin-left: 10rem;
+    margin-left: 10%;
    
+  }
+
+  @media screen and (max-width:599px) {
+    .iconlist{
+     flex-direction: column;
+    }
   }
