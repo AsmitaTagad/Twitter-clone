@@ -13,8 +13,17 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import RightSide from "../rightSide/RightSide";
 import Twitter from "../tweett/Tweet";
-import { Button } from "@mui/material";
+import { Box, Button, Dialog, DialogContent, DialogTitle } from "@mui/material";
+import style from "./Home.module.css";
+import ResFooter from "../../components/resfooter/ResFooter";
+import { AiFillPlusCircle } from "react-icons/ai";
+import { GrFormClose } from "react-icons/gr";
+import Tweeter from "../tweett/Tweet";
+
 function Home() {
+  const [fullWidth, setFullWidth] = React.useState(true);
+  const [maxWidth, setMaxWidth] = React.useState("sm");
+  const [open, setOpen] = React.useState(false);
   const isLogin = useSelector((state) => state.loginData.isLogin);
   const tweetsData = useSelector((state) => state.tweetData.tweets);
   const [show, setShow] = useState(10);
@@ -35,6 +44,12 @@ function Home() {
   const handleShowMore = () => {
     setShow(show + 5);
   };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div>
@@ -45,20 +60,16 @@ function Home() {
             // flexGrow: "1",
             width: "30%",
           }}
+          className={style.sidebar}
         >
           <SideBar />
         </div>
 
-        <div
-          style={{
-            // flexGrow: "4",
-            border: "1px solid #DDDDDD",
-            borderTop: "none",
-            width: "37%",
-          }}
-        >
+        <div className={style.mainContent}>
           <Navbar />
-          <Twitter />
+          <div className={style.tweetcontainer}>
+            <Twitter />
+          </div>
 
           {tweetsData.slice(0, show).map((tweet) => (
             <div key={tweet.id}>
@@ -88,11 +99,43 @@ function Home() {
           </div>
         </div>
 
-        <div style={{ width: "33%" }}>
+        <div style={{ width: "33%" }} className={style.rightside}>
           <RightSide />
         </div>
       </div>
-      {!isLogin && <Footer />}
+      <div className={style.logFooter}>{!isLogin && <Footer />}</div>
+      <div className={style.resfooter}>
+        <ResFooter />
+      </div>
+      <div className={style.tweeticon}>
+        <AiFillPlusCircle color="rgb(29, 155, 240)" onClick={handleClickOpen} />
+      </div>
+      <Dialog
+        fullWidth={fullWidth}
+        maxWidth={maxWidth}
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle>
+          <Button onClick={handleClose}>
+            <GrFormClose fontSize={30} />
+          </Button>
+        </DialogTitle>
+        <DialogContent>
+          <Box
+            noValidate
+            component="form"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              m: "auto",
+              width: "fit-content",
+            }}
+          >
+            <Tweeter />
+          </Box>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

@@ -17,6 +17,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import style from "./Register.module.css";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
   const [open, setOpen] = useState(true);
@@ -32,6 +33,7 @@ function RegisterForm() {
   const [nameError, setNameError] = useState(false);
   const [passError, setPassError] = useState(false);
   const [isdisabled, setISDisabled] = useState(true);
+  const navigate = useNavigate();
 
   const colorbtn = !isdisabled ? "black" : "rgb(62, 62, 62);";
 
@@ -95,6 +97,7 @@ function RegisterForm() {
   };
   const handleClose = () => {
     setOpen(false);
+    navigate("/signin");
   };
 
   const handleName = (e) => {
@@ -182,6 +185,8 @@ function RegisterForm() {
       setPhone("");
       setYear("");
       setPassword("");
+      alert("Register Successfull");
+      navigate("/signin");
     }
   };
   return (

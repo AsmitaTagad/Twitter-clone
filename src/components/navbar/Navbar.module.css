@@ -5,3 +5,36 @@
     opacity: 98%;
     z-index: 10;
 }
+
+.leftpanel{
+    display: none;
+  
+}
+
+.Icon {
+   
+    margin-left: -60px;
+    color: rgb(29, 155, 240);
+    font-size: 29px;
+    margin-top: 10px;
+
+  }
+  .avtaricon{
+    width: 35px;
+    height: 35px;
+    margin-top: 7px;
+  }
+@media screen and (max-width:600px){
+    .navHeading{
+    display: none;
+    }
+    .Icon{
+        width: 100vw;
+    }
+    .leftpanel{
+        display: flex;
+    margin-left:20px;
+       
+    }
+
+}

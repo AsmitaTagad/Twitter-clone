@@ -1,14 +1,19 @@
-import { Button, Typography } from "@mui/material";
+import { Avatar, Button, Typography } from "@mui/material";
 import React from "react";
 import style from "./Navbar.module.css";
+import { red } from "@mui/material/colors";
+import { userName } from "../../atoms/profilebutton/ProfileButton";
+import { AiOutlineTwitter } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <div
       className={style.navbar}
       style={{ borderBottom: "1px solid #DDDDDD", backgroundColor: "white" }}
     >
-      <div>
+      <div className={style.navHeading}>
         <Typography
           sx={{
             fontWeight: "bold",
@@ -23,6 +28,27 @@ function Navbar() {
           Home
         </Typography>
       </div>
+
+      <div className={style.leftpanel}>
+        <div>
+          <Avatar
+            className={style.avtaricon}
+            sx={{ bgcolor: red[500] }}
+            alt="Travis Howard"
+            src="/static/images/avatar/2.jpg"
+          >
+            {userName[0]}
+          </Avatar>
+        </div>
+        <div>
+          {" "}
+          <AiOutlineTwitter
+            className={style.Icon}
+            onClick={() => navigate("/")}
+          />
+        </div>
+      </div>
+
       <div style={{ display: "flex" }}>
         <Button
           sx={{

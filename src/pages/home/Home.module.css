@@ -1,0 +1,49 @@
+
+
+.mainContent{
+    border: 1px solid #DDDDDD;
+    border-top: "none";
+    width: 37%;
+}
+
+.resfooter{
+    display: none;
+}
+
+.tweeticon{
+    display: none;
+    position: fixed;
+    font-size: 50px;
+    bottom: 60px;
+    right: 10px;
+    width: fit-content;
+    height: fit-content;
+    z-index: 20;
+    border-radius: 50%;
+}
+
+@media screen and (max-width:600px){
+    .sidebar{
+display: none;
+    }
+    .rightside{
+        display: none;
+    }
+    .mainContent{
+       width: 100vw;
+       height: 100vh;
+      
+    }
+    .logFooter{
+        display: none;
+    }
+    .resfooter{
+        display: block;
+    }
+    .tweetcontainer{
+        display: none;
+    }
+    .tweeticon{
+        display: block;
+    }
+}
