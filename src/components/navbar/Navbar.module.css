@@ -22,7 +22,7 @@
   .avtaricon{
     width: 35px;
     height: 35px;
-    margin-top: 7px;
+    margin-top: 1px;
   }
 @media screen and (max-width:600px){
     .navHeading{

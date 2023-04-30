@@ -92,15 +92,27 @@ export default function TweetCard(props) {
         onDoubleClick={() => handleLike(props.id)}
       />
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <IconButton aria-label="comment" sx={{ fontSize: "17px" }}>
+        <IconButton
+          aria-label="comment"
+          sx={{ fontSize: "17px" }}
+          className={Stle.commit}
+        >
           <FaRegComment onClick={() => handleComment(props.id)} /> &nbsp; &nbsp;{" "}
           {props.commentCount}
         </IconButton>
-        <IconButton aria-label="retweet" sx={{ fontSize: "17px" }}>
+        <IconButton
+          aria-label="retweet"
+          sx={{ fontSize: "17px" }}
+          className={Stle.retweet}
+        >
           <AiOutlineRetweet onClick={() => handleReTweet(props.id)} /> &nbsp;
           &nbsp; {props.reTweetsCount}
         </IconButton>
-        <IconButton aria-label="add to favorites" sx={{ fontSize: "17px" }}>
+        <IconButton
+          aria-label="add to favorites"
+          sx={{ fontSize: "17px" }}
+          className={Stle.fav}
+        >
           {props.isLiked ? (
             <FcLike onClick={() => handleLike(props.id)} />
           ) : (
@@ -108,11 +120,19 @@ export default function TweetCard(props) {
           )}
           &nbsp; &nbsp; {props.likeCount}
         </IconButton>
-        <IconButton aria-label="view" sx={{ fontSize: "17px" }}>
+        <IconButton
+          aria-label="view"
+          sx={{ fontSize: "17px" }}
+          className={Stle.view}
+        >
           <IoIosStats onClick={() => handleViewCount(props.id)} /> &nbsp; &nbsp;{" "}
           {props.viewCount}
         </IconButton>
-        <IconButton aria-label="view" sx={{ fontSize: "17px" }}>
+        <IconButton
+          aria-label="view"
+          sx={{ fontSize: "17px" }}
+          className={Stle.share}
+        >
           <FiShare onClick={() => handleShareCount(props.id)} /> &nbsp; &nbsp;{" "}
           {props.shareCount}
         </IconButton>

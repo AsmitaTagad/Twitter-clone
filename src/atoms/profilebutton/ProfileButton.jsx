@@ -38,6 +38,7 @@ function ProfileButton() {
   const handleLogOut = () => {
     dispatch(loginOrNotSlice.actions.userLogout());
     alert("Successfully Logout");
+    navigate("/signin");
   };
 
   const [anchorEl, setAnchorEl] = React.useState(null);

@@ -5,6 +5,7 @@ import { red } from "@mui/material/colors";
 import { userName } from "../../atoms/profilebutton/ProfileButton";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { useNavigate } from "react-router";
+import TemporaryDrawer from "../../atoms/ressidebar/ResSidebar";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -30,15 +31,17 @@ function Navbar() {
       </div>
 
       <div className={style.leftpanel}>
-        <div>
-          <Avatar
+        <div className={style.avtaricon}>
+          {/* <Avatar
             className={style.avtaricon}
             sx={{ bgcolor: red[500] }}
             alt="Travis Howard"
             src="/static/images/avatar/2.jpg"
           >
             {userName[0]}
-          </Avatar>
+          </Avatar> */}
+
+          <TemporaryDrawer />
         </div>
         <div>
           {" "}

@@ -14,13 +14,22 @@ function ResFooter() {
         <AiTwotoneHome fontSize={25} onClick={() => navigate("/")} />
       </div>
       <div>
-        <FiSearch fontSize={25} />
+        <FiSearch
+          fontSize={25}
+          onClick={() => alert("You Clicked on search section")}
+        />
       </div>
       <div>
-        <GrNotification fontSize={25} />
+        <GrNotification
+          fontSize={25}
+          onClick={() => alert("You Clicked on notification section")}
+        />
       </div>
       <div>
-        <HiOutlineMail fontSize={25} />
+        <HiOutlineMail
+          fontSize={25}
+          onClick={() => alert("You Clicked on message section")}
+        />
       </div>
     </div>
   );

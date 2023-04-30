@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import rm from "./RightMiddleSec.module.css";
+import { Avatar } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 const RightMiddleSec = () => {
   const [userdata, setUserData] = useState([]);
@@ -41,7 +43,13 @@ const RightMiddleSec = () => {
             <div className={rm.main}>
               <div className={rm.contentmain} key={element.user_id}>
                 <div className={rm.content}>
-                  <img className={rm.image} src={element.img} alt="" />
+                  {/* <img className={rm.image} src={element.img} alt="" /> */}
+                  <Avatar
+                    sx={{ bgcolor: red[500], marginLeft: "60px" }}
+                    aria-label="recipe"
+                  >
+                    {element.first_name[0]}
+                  </Avatar>
                 </div>
                 <div className={rm.text}>
                   <h5>{element.first_name}</h5>
